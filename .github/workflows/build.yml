@@ -23,7 +23,13 @@ jobs:
         cache: 'gradle'
 
     - name: Build and test with Gradle
-      run: ./gradlew buildRelease testRelease -Pci
+      run: ./gradlew assembleDebug testRelease -Pci
+
+    - name: Upload Debug APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-debug
+        path: app/build/outputs/apk/debug/app-debug*.apk
 
     - name: Cleanup Gradle Cache
       # Remove some files from the Gradle cache, so they aren't cached by GitHub Actions.

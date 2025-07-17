@@ -228,8 +228,18 @@
 		"id": "orf",
 		"name": "ORF",
 		"stream_url": "https://strm.hdtvizlecanli.com/live/orf1.m3u8",
+		"fallback_streams": [
+			"https://orf1.mdn.ors.at/out/u/orf1/qxb/manifest.m3u8",
+			"https://orf1-live.ors-shoutcast.at/orf1/q1a/playlist.m3u8",
+			"https://orf1.iptv2022.com/live/orf1hd_high/index.m3u8"
+		],
 		"logo_name": "channel_logo_phoenix",
 		"color": "#FF0000",
-		"subtitle": "Oesterreich"
+		"subtitle": "Oesterreich",
+		"stream_options": {
+			"format": "hls",
+			"drm": false,
+			"user_agent": "Mozilla/5.0"
+		}
 	}
 ]

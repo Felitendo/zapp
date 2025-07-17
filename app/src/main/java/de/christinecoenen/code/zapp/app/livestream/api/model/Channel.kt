@@ -22,6 +22,7 @@ enum class Channel(private val id: String) {
 	SR("sr"),
 	SWR_BADEN_WUERTTEMBERG("swr_bw"),
 	SWR_RHEINLAND_PFALZ("swr_rp"),
+	ORF("orf"),
 	WDR("wdr"),
 	ARD_ALPHA("ard_alpha"),
 	TAGESSCHAU24("tagesschau24"),

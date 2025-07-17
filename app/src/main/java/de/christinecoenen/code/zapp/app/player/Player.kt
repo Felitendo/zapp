@@ -107,16 +107,10 @@ class Player(
 			.setContentType(C.AUDIO_CONTENT_TYPE_MOVIE)
 			.build()
 
-		// use okhttp as network stack with custom headers for ORF
-		val httpDataSourceFactory = OkHttpDataSource.Factory(httpClient)
-			.setUserAgent("Mozilla/5.0")
-			.setDefaultRequestProperties(mapOf(
-				"Referer" -> "https://www.orf.at",
-				"Origin" -> "https://www.orf.at"
-			))
+		// use okhttp as network stack
 		val dataSourceFactory = DefaultDataSource.Factory(
 			context,
-			httpDataSourceFactory
+			OkHttpDataSource.Factory(httpClient)
 		)
 		exoPlayer = ExoPlayer.Builder(context)
 			.setTrackSelector(trackSelector)

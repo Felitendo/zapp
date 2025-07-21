@@ -1,3 +1,6 @@
+# v-next
+* Absturz beim Start behoben, wenn schon einmal die Sender-Reihenfolge angepasst wurde
+
 # 9.1.0
 * System-Bar bleibt im Player nicht mehr sichtbar, nachdem man Programm-Informationen aufgerufen hat [#313](https://github.com/mediathekview/zapp/issues/313)
 * "Über Zapp" an verschiedenen Gerätegrößen angepasst ([#483](https://github.com/mediathekview/zapp/issues/483))

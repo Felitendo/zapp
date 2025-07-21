@@ -1,3 +1,6 @@
+# v-next
+* Fixed a crash upon start when the channel order has been changed previously
+
 # 9.1.0
 * System bar does not get stuck after accessing program information inside the player [#313](https://github.com/mediathekview/zapp/issues/313)
 * Adjusted "About Zapp" to different device sizes ([#483](https://github.com/mediathekview/zapp/issues/483))

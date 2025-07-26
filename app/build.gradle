@@ -14,8 +14,8 @@ android {
 		compileSdk 36
 		minSdkVersion 26
 		targetSdkVersion 36
-		versionCode 77
-		versionName "9.1.0"
+		versionCode 78
+		versionName "9.1.1"
 		testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 		resourceConfigurations += ['de', 'en']
 	}
@@ -117,8 +117,8 @@ dependencies {
 	// unit tests
 	testImplementation 'junit:junit:4.13.2'
 	testImplementation "androidx.test:core-ktx:$androix_test_version"
-	testImplementation 'org.robolectric:robolectric:4.14.1'
-	testImplementation 'org.mockito.kotlin:mockito-kotlin:5.4.0'
+	testImplementation 'org.robolectric:robolectric:4.15.1'
+	testImplementation 'org.mockito.kotlin:mockito-kotlin:6.0.0'
 	testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2'
 
 	// support
@@ -133,7 +133,7 @@ dependencies {
 	implementation 'androidx.preference:preference-ktx:1.2.1'
 	implementation "androidx.paging:paging-runtime-ktx:3.3.6"
 
-	def lifecycle_version = "2.9.1"
+	def lifecycle_version = "2.9.2"
 	implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 	implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
 

@@ -98,9 +98,9 @@ class PreferenceChannelOrderHelperTest : AutoCloseKoinTest() {
 	@Test
 	fun testChannelAddedAndRemovedAfterSorting() {
 		val savedChannelList = mutableListOf(
-			getDummyChannel(0),
-			getDummyChannel(1),
 			getDummyChannel(2),
+			getDummyChannel(1),
+			getDummyChannel(0),
 		)
 
 		preferenceChannelOrderHelper.saveChannelOrder(savedChannelList)
@@ -115,8 +115,8 @@ class PreferenceChannelOrderHelperTest : AutoCloseKoinTest() {
 
 		assertEquals(
 			listOf(
-				getDummyChannel(1),
 				getDummyChannel(2),
+				getDummyChannel(1),
 				getDummyChannel(3),
 			),
 			sorted

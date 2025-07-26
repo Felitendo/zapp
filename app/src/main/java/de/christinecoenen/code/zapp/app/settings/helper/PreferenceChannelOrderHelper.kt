@@ -27,13 +27,13 @@ class PreferenceChannelOrderHelper(context: Context) {
 	}
 
 	private fun loadOrder(channels: List<ChannelModel>): List<ChannelModel> {
-		val sortedChannelIds = preferenceHelper.loadList(PREF_KEY_CHANNEL_ORDER)?.toSortedSet()
+		val sortedChannelIds = preferenceHelper.loadList(PREF_KEY_CHANNEL_ORDER)
 			?: return channels // have never been saved before
 
 		return channels.sortedBy {
 			val sortIndex = sortedChannelIds.indexOf(it.id)
 			if (sortIndex == -1) Int.MAX_VALUE else sortIndex
-		}
+		}.toMutableList()
 	}
 
 	private fun loadVisibility(

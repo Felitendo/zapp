@@ -10,6 +10,7 @@ import de.christinecoenen.code.zapp.app.settings.repository.SettingsRepository
 import de.christinecoenen.code.zapp.utils.api.ProxyTestHelper
 import de.christinecoenen.code.zapp.utils.system.PreferenceFragmentHelper
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withTimeoutOrNull
 import org.koin.android.ext.android.inject
 
 class SettingsFragment : BaseSettingsFragment() {
@@ -52,10 +53,14 @@ class SettingsFragment : BaseSettingsFragment() {
 
 		lifecycleScope.launch {
 			try {
-				val success = proxyTestHelper.testProxyConnection()
+				// Add an additional timeout at the coroutine level to ensure the test never hangs indefinitely
+				val success = withTimeoutOrNull(35000L) { // 35 seconds total timeout
+					proxyTestHelper.testProxyConnection()
+				}
+				
 				snackbar.dismiss()
 				
-				val messageResId = if (success) {
+				val messageResId = if (success == true) {
 					R.string.proxy_test_success
 				} else {
 					R.string.proxy_test_failed

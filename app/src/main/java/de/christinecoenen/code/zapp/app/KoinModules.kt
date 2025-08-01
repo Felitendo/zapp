@@ -29,6 +29,7 @@ import de.christinecoenen.code.zapp.repositories.ChannelRepository
 import de.christinecoenen.code.zapp.repositories.MediathekRepository
 import de.christinecoenen.code.zapp.repositories.SearchRepository
 import de.christinecoenen.code.zapp.utils.api.UserAgentInterceptor
+import de.christinecoenen.code.zapp.utils.api.OrfProxySelector
 import io.noties.markwon.Markwon
 import kotlinx.coroutines.MainScope
 import okhttp3.OkHttpClient
@@ -46,6 +47,7 @@ class KoinModules {
 			single {
 				OkHttpClient.Builder()
 					.addInterceptor(UserAgentInterceptor())
+					.proxySelector(OrfProxySelector())
 					.build()
 			}
 

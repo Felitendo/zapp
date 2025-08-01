@@ -176,6 +176,14 @@
 	<string name="pref_detail_search_history_title">Suchverlauf</string>
 	<string name="pref_detail_search_history_summary">Speichere die letzten Suchanfragen.</string>
 
+	<string name="pref_test_proxy_title">Proxy-Verbindung testen</string>
+	<string name="pref_test_proxy_summary">Teste die Verbindung zu österreichischen Proxy-Servern für ORF-Kanäle</string>
+
+	<string name="proxy_status_connected">Mit österreichischem Proxy verbunden für ORF-Kanäle</string>
+	<string name="proxy_test_success">Proxy-Verbindung erfolgreich</string>
+	<string name="proxy_test_failed">Proxy-Verbindung fehlgeschlagen</string>
+	<string name="proxy_test_running">Teste Proxy-Verbindung...</string>
+
 	<!-- notifications -->
 	<string name="notification_channel_name_background_playback">Hintergrund-Videoplayer</string>
 	<string name="notification_channel_name_download_progress">Download Fortschritt</string>

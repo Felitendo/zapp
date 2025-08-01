@@ -24,6 +24,11 @@ class OrfProxySelector : ProxySelector() {
     }
 
     private var currentProxyIndex = 0
+    private var onProxyUsedListener: ((String) -> Unit)? = null
+
+    fun setOnProxyUsedListener(listener: ((String) -> Unit)?) {
+        onProxyUsedListener = listener
+    }
 
     override fun select(uri: URI?): List<Proxy> {
         if (uri == null) {
@@ -35,6 +40,8 @@ class OrfProxySelector : ProxySelector() {
         // Check if this is an ORF channel request
         if (isOrfChannelRequest(url)) {
             Timber.d("Using Austrian proxy for ORF request: $url")
+            // Notify listener that proxy is being used
+            onProxyUsedListener?.invoke(url)
             // Return all Austrian proxies for failover
             return AUSTRIAN_PROXIES
         }

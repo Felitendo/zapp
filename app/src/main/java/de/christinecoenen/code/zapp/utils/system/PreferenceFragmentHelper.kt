@@ -28,6 +28,7 @@ class PreferenceFragmentHelper(
 		private const val PREF_UI_MODE = "pref_ui_mode"
 		private const val PREF_LANGUAGE = "pref_key_language"
 		private const val PREF_CHANNEL_SELECTION = "pref_key_channel_selection"
+		private const val PREF_TEST_PROXY = "pref_key_test_proxy"
 
 	}
 
@@ -36,8 +37,10 @@ class PreferenceFragmentHelper(
 	private var uiModePreference: ListPreference? = null
 	private var languagePreference: ListPreference? = null
 	private var channelSelectionPreference: Preference? = null
+	private var testProxyPreference: Preference? = null
 
 	private var channelSelectionClickListener: OnPreferenceClickListener? = null
+	private var testProxyClickListener: OnPreferenceClickListener? = null
 
 	private val dynamicColorChangeListener = Preference.OnPreferenceChangeListener { _, _ ->
 		// Delay to wait for pereferences to be persisted (on very fast devices)
@@ -65,7 +68,10 @@ class PreferenceFragmentHelper(
 		preferenceFragment.lifecycle.addObserver(this)
 	}
 
-	fun initPreferences(channelSelectionClickListener: OnPreferenceClickListener? = null) {
+	fun initPreferences(
+		channelSelectionClickListener: OnPreferenceClickListener? = null,
+		testProxyClickListener: OnPreferenceClickListener? = null
+	) {
 		val preferenceScreen = preferenceFragment.preferenceScreen
 
 		shortcutPreference = preferenceScreen.findPreference(PREF_SHORTCUTS)
@@ -73,6 +79,7 @@ class PreferenceFragmentHelper(
 		uiModePreference = preferenceScreen.findPreference(PREF_UI_MODE)
 		languagePreference = preferenceScreen.findPreference(PREF_LANGUAGE)
 		channelSelectionPreference = preferenceScreen.findPreference(PREF_CHANNEL_SELECTION)
+		testProxyPreference = preferenceScreen.findPreference(PREF_TEST_PROXY)
 
 		languagePreference?.let {
 			val languages =
@@ -88,6 +95,7 @@ class PreferenceFragmentHelper(
 		}
 
 		this.channelSelectionClickListener = channelSelectionClickListener
+		this.testProxyClickListener = testProxyClickListener
 	}
 
 	fun destroy() {
@@ -102,6 +110,7 @@ class PreferenceFragmentHelper(
 		uiModePreference?.onPreferenceChangeListener = uiModeChangeListener
 		languagePreference?.onPreferenceChangeListener = languageChangeListener
 		channelSelectionPreference?.onPreferenceClickListener = channelSelectionClickListener
+		testProxyPreference?.onPreferenceClickListener = testProxyClickListener
 	}
 
 	override fun onDestroy(owner: LifecycleOwner) {
@@ -112,5 +121,6 @@ class PreferenceFragmentHelper(
 		uiModePreference?.onPreferenceChangeListener = null
 		languagePreference?.onPreferenceChangeListener = null
 		channelSelectionPreference?.onPreferenceClickListener = null
+		testProxyPreference?.onPreferenceClickListener = null
 	}
 }

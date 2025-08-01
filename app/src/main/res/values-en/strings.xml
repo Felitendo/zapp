@@ -176,6 +176,14 @@
 	<string name="pref_detail_search_history_title">Search history</string>
 	<string name="pref_detail_search_history_summary">Remember the most recent search queries.</string>
 
+	<string name="pref_test_proxy_title">Test proxy connection</string>
+	<string name="pref_test_proxy_summary">Test the connection to Austrian proxy servers for ORF channels</string>
+
+	<string name="proxy_status_connected">Connected to Austrian proxy for ORF channels</string>
+	<string name="proxy_test_success">Proxy connection successful</string>
+	<string name="proxy_test_failed">Proxy connection failed</string>
+	<string name="proxy_test_running">Testing proxy connection...</string>
+
 	<!-- notifications -->
 	<string name="notification_channel_name_background_playback">Background player</string>
 	<string name="notification_channel_name_download_progress">Download progress</string>

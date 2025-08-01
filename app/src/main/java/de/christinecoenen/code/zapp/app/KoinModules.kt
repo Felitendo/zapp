@@ -30,6 +30,7 @@ import de.christinecoenen.code.zapp.repositories.MediathekRepository
 import de.christinecoenen.code.zapp.repositories.SearchRepository
 import de.christinecoenen.code.zapp.utils.api.UserAgentInterceptor
 import de.christinecoenen.code.zapp.utils.api.OrfProxySelector
+import de.christinecoenen.code.zapp.utils.api.ProxyStatusService
 import io.noties.markwon.Markwon
 import kotlinx.coroutines.MainScope
 import okhttp3.OkHttpClient
@@ -44,10 +45,21 @@ class KoinModules {
 	companion object {
 
 		val AppModule = module {
+			single { ProxyStatusService(androidContext()) }
+			
+			single {
+				val proxySelector = OrfProxySelector()
+				val proxyStatusService = get<ProxyStatusService>()
+				proxySelector.setOnProxyUsedListener { url ->
+					proxyStatusService.onProxyUsed(url)
+				}
+				proxySelector
+			}
+			
 			single {
 				OkHttpClient.Builder()
 					.addInterceptor(UserAgentInterceptor())
-					.proxySelector(OrfProxySelector())
+					.proxySelector(get<OrfProxySelector>())
 					.build()
 			}
 

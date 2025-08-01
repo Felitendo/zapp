@@ -80,6 +80,11 @@
 			android:summary="@string/pref_download_over_unmetered_network_only_summary"
 			android:title="@string/pref_download_over_unmetered_network_only_title" />
 
+		<Preference
+			android:key="@string/pref_key_test_proxy"
+			android:summary="@string/pref_test_proxy_summary"
+			android:title="@string/pref_test_proxy_title" />
+
 	</PreferenceCategory>
 
 	<PreferenceCategory

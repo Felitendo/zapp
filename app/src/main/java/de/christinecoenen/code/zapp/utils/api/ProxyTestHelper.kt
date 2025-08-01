@@ -36,6 +36,7 @@ class ProxyTestHelper {
                     .proxy(proxy)
                     .connectTimeout(TIMEOUT_MS.toLong(), java.util.concurrent.TimeUnit.MILLISECONDS)
                     .readTimeout(TIMEOUT_MS.toLong(), java.util.concurrent.TimeUnit.MILLISECONDS)
+                    .callTimeout(TIMEOUT_MS.toLong(), java.util.concurrent.TimeUnit.MILLISECONDS)
                     .build()
 
                 val request = Request.Builder()
@@ -43,14 +44,12 @@ class ProxyTestHelper {
                     .head() // Use HEAD request to minimize data transfer
                     .build()
 
-                val response = client.newCall(request).execute()
-                
-                if (response.isSuccessful) {
-                    Timber.d("Proxy test successful via ${proxy.address()}")
-                    response.close()
-                    return@withContext true
+                client.newCall(request).execute().use { response ->
+                    if (response.isSuccessful) {
+                        Timber.d("Proxy test successful via ${proxy.address()}")
+                        return@withContext true
+                    }
                 }
-                response.close()
             } catch (e: Exception) {
                 Timber.w(e, "Proxy test failed for ${proxy.address()}")
             }

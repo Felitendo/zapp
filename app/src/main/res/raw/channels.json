@@ -227,28 +227,28 @@
 	{
 		"id": "orf_1",
 		"name": "ORF 1",
-		"stream_url": "https://orf1.mdn.ors.at/out/u/orf1/qxb/manifest.m3u8",
+		"stream_url": "https://orf-live.orscdn.at/out/u/orf1/qxb/manifest.m3u8",
 		"logo_name": "channel_logo_orf_1",
 		"color": "#FF0000"
 	},
 	{
 		"id": "orf_2",
 		"name": "ORF 2",
-		"stream_url": "https://orf2.mdn.ors.at/out/u/orf2/qxb/manifest.m3u8",
+		"stream_url": "https://orf-live.orscdn.at/out/u/orf2/qxb/manifest.m3u8",
 		"logo_name": "channel_logo_orf_2",
 		"color": "#FF6600"
 	},
 	{
 		"id": "orf_iii",
 		"name": "ORF III",
-		"stream_url": "https://orf3.mdn.ors.at/out/u/orf3/qxb/manifest.m3u8",
+		"stream_url": "https://orf-live.orscdn.at/out/u/orf3/qxb/manifest.m3u8",
 		"logo_name": "channel_logo_orf_iii",
 		"color": "#990099"
 	},
 	{
 		"id": "orf_sport",
 		"name": "ORF Sport+",
-		"stream_url": "https://orfs.mdn.ors.at/out/u/orfs/qxb/manifest.m3u8",
+		"stream_url": "https://orf-live.orscdn.at/out/u/orfs/qxb/manifest.m3u8",
 		"logo_name": "channel_logo_orf_sport",
 		"color": "#006600"
 	}
